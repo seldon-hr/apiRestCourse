@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+img {
+    grid-area: 2;
+    width: 500px;
+    height: auto;
+    margin: 20px auto;
+}
+
+button {
+    width: 200px;
+    align-self: center;
+    margin: 0 auto;
+}
