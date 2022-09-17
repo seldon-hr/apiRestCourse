@@ -8,3 +8,7 @@ fetch(URL)
         const img = document.querySelector('img');
         img.src = data[0].url;
     });
+
+function refreshDoggo(urlApi) {
+    fetch(urlApi);
+}
