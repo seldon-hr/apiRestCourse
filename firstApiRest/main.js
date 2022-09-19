@@ -4,15 +4,34 @@ const URL = 'https://api.thedogapi.com/v1/images/search';
 
 
 
-function refreshDoggo() {
-    // fetch(urlApi);
-    fetch(URL)
-    .then(res => res.json())
-    .then(data => {
-        const img = document.querySelector('img');
-        img.src = data[0].url;
-    });
+// function refreshDoggo() {
+//     fetch(URL)
+//     .then(res => res.json())
+//     .then(data => {
+//         const img = document.querySelector('img');
+//         img.src = data[0].url;
+//     });
+// }
+
+// refreshDoggo(URL);
+
+
+async function fetchData(urlApi) {
+    const response = await fetch(urlApi);
+    const data = await response.json();
+    return data;
 }
 
-refreshDoggo(URL);
+const anotherFunction = async (urlApi) => {
+    try {
+        const doggo = await fetchData(urlApi);
+        const img = document.querySelector('img');
+
+        img.src = doggo[0].url;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+anotherFunction(URL);
  
