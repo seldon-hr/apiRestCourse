@@ -13,7 +13,6 @@ const URL = 'https://api.thedogapi.com/v1/images/search';
 //     });
 // }
 
-// refreshDoggo(URL);
 
 
 async function fetchData(urlApi) {
@@ -22,16 +21,17 @@ async function fetchData(urlApi) {
     return data;
 }
 
-const anotherFunction = async (urlApi) => {
+const refreshDoggo = async (urlApi) => {
     try {
         const doggo = await fetchData(urlApi);
         const img = document.querySelector('img');
-
+        
         img.src = doggo[0].url;
     } catch (error) {
         console.log(error);
     }
 }
 
-anotherFunction(URL);
+refreshDoggo(URL);
+// anotherFunction(URL);
  
