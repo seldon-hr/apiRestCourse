@@ -1,4 +1,4 @@
-const API = 'https://api.thedogapi.com/v1/images/search?limit=3';
+const API = 'https://api.thedogapi.com/v1/images/search?limit=3&apikey=live_VOYMcAfRNwYhJxe31OJ1fntESm8JSYSaoOaYx4mB63hcIrYtmR5fhMtx6YrCW92i';
 /* 
 Endpoints
     Estos son los lugares o categorias de nuestras apis. e.g.
