@@ -9,7 +9,7 @@ const spanError = document.getElementById('error');
 
 
 async function loadRandomDogs() {
-    const res = await fetch(`${API_URL_RANDOM}&${API_KEY}`);
+    const res = await fetch(`${API_URL_RANDOM}&apiKey=${API_KEY}`);
     const data = await res.json();
     console.log('Random Dogs')
     console.log(data);
@@ -28,13 +28,17 @@ async function loadRandomDogs() {
 }
 
 async function loadFavoritesDogs() {
-    const res = await fetch(API_URL_FAVOURITES);
+    const res = await fetch(`${API_URL_FAVOURITES}&apiKey=${API_KEY}`);
+    console.log(res.status);
+    spanError.innerHTML = `Hubo un error ${res.status}`;
+
     const data = await res.json();
     console.log('Favorites Dogs')
     console.log(data);
 
     if (res.status !== 200) {
-        spanError.innerHTML = `Hubo un error ${res.status}`;
+    } else {
+
     }
     
 }
