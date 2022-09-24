@@ -1,29 +1,43 @@
-const API = 'https://api.thedogapi.com/v1/images/search?limit=3&apikey=live_VOYMcAfRNwYhJxe31OJ1fntESm8JSYSaoOaYx4mB63hcIrYtmR5fhMtx6YrCW92i';
-/* 
-Endpoints
-    Estos son los lugares o categorias de nuestras apis. e.g.
-    La url de nuestra API es https://api.thedogapi.com/v1/
-    Y un endpoint sería este: images/search
+const API_URL_RANDOM = 'https://api.thedogapi.com/v1/images/search?limit=2';
+const API_URL_FAVOURITES = 'https://api.thedogapi.com/v1/favourites?limit=2'
 
-Query parameters
-    Consultas en est caso la iniciamos con ?
-    y si buscamos otra  con &
-*/
+const API_KEY = 'live_VOYMcAfRNwYhJxe31OJ1fntESm8JSYSaoOaYx4mB63hcIrYtmR5fhMtx6YrCW92i';
 
-async function refresh() {
-    const res = await fetch(API);
+const spanError = document.getElementById('error');
+
+
+
+
+async function loadRandomDogs() {
+    const res = await fetch(`${API_URL_RANDOM}&${API_KEY}`);
     const data = await res.json();
-    
+    console.log('Random Dogs')
     console.log(data);
-    const img1 = document.getElementById('img1');
-    const img2 = document.getElementById('img2');
-    const img3 = document.getElementById('img3');
-    // img.src = data[0].url;
-
-    img1.src = data[0].url
-    img2.src = data[1].url
-    img3.src = data[2].url
+   
+    if (res.status !== 200) {
+        spanError.innerHTML = `Hubo un error ${res.status}`;
+    } else {
+        const img1 = document.getElementById('img1');
+        const img2 = document.getElementById('img2');
+        
+    
+        img1.src = data[0].url
+        img2.src = data[1].url
+    }
     
 }
 
-refresh();
+async function loadFavoritesDogs() {
+    const res = await fetch(API_URL_FAVOURITES);
+    const data = await res.json();
+    console.log('Favorites Dogs')
+    console.log(data);
+
+    if (res.status !== 200) {
+        spanError.innerHTML = `Hubo un error ${res.status}`;
+    }
+    
+}
+
+loadRandomDogs();
+loadFavoritesDogs();
