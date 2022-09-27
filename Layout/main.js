@@ -27,21 +27,44 @@ async function loadRandomDogs() {
     
 }
 
-async function loadFavoritesDogs() {
+async function loadFavouriteDogs() {
     const res = await fetch(`${API_URL_FAVOURITES}&apiKey=${API_KEY}`);
     console.log(res.status);
-    spanError.innerHTML = `Hubo un error ${res.status}`;
-
+    
     const data = await res.json();
     console.log('Favorites Dogs')
     console.log(data);
-
+    
     if (res.status !== 200) {
+        spanError.innerHTML = `Hubo un error ${res.status}`;
     } else {
 
     }
     
 }
 
+async function saveFavouritesDogs() {
+    const rest = await fetch(`${API_URL_FAVOURITES}&apiKey=${API_KEY}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            image_id: 'dje'
+        }),
+    });
+
+    const data = await rest.json();
+    console.log('save');
+    console.log(rest);
+
+    if (rest.status !== 200) {
+        spanError.innerHTML = `Hubo un error ${rest.status}`;
+    }
+}
+
+
+
 loadRandomDogs();
-loadFavoritesDogs();
+loadFavouriteDogs();
+saveFavouritesDogs();
