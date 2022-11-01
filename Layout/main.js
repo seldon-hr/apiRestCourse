@@ -19,6 +19,7 @@ async function loadRandomDogs() {
     const res = await fetch(API);
     const data = await res.json();
     console.log('Random Dogs')
+    console.log(res.status); //Con esto estamos probando que es lo que esta haciendo bajo el objeto json recibido.
     console.log(data);
    
     if (res.status !== 200) {
