@@ -38,6 +38,7 @@ async function loadRandomDogs() {
  /*    console.log('Random Dogs')
     console.log(res.status); //Con esto estamos probando que es lo que esta haciendo bajo el objeto json recibido.
     console.log(data); */
+    console.log(data);
     
    
     if (res.status !== 200) {
@@ -54,7 +55,13 @@ async function loadRandomDogs() {
 }
 
 async function loadFavouriteDogs() {
-    const res = await fetch(API+FAVOURITES+API_KEY);
+    /* Load some dogs via headers, since it's easier to have the request about the data */
+    const res = await fetch(API+FAVOURITES, {
+        method: 'GET',
+        headers: {
+            'x-api-key': API_KEY,
+        },
+    });
     console.log(res.status);
     
     const data = await res.json();
@@ -85,7 +92,7 @@ async function saveFavouritesDogs() {
 
     const data = await res.json();
     console.log('save');
-    console.log(res);
+    console.log(data);
 
     if (res.status !== 200) {
         spanError.innerHTML = `Hubo un error ${res.status}  ${data.message}`;
@@ -95,5 +102,5 @@ async function saveFavouritesDogs() {
 
 
 loadRandomDogs();
-// loadFavouriteDogs();
+loadFavouriteDogs();
 // saveFavouritesDogs();
