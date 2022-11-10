@@ -69,7 +69,7 @@ async function loadFavouriteDogs() {
     console.log(data);
     
     if (res.status !== 200) {
-        spanError.innerHTML = `Hubo un error ${res.status}`;
+        spanError.innerHTML = `Hubo un error ${res.status} ${data.message}`;
     } else {
 
     }
