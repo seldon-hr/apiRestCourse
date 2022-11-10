@@ -58,9 +58,22 @@ async function loadFavouriteDogs() {
     if (res.status !== 200) {
         spanError.innerHTML = `Hubo un error ${res.status} ${data.message}`;
     } else {
+        /* Limpiamos porque cada vez que agregamos se va a volver a llamar, de manera que se carga todo de nuevo
+        y tendríamos repetido por cada vez que guardamos un doggo en favoritos, así limpiamos section que contiene todo
+        e insertamos un h2 con su texto h2Text que lo agregaremos cada que agreguemos un nuevo a favoritos, ya que
+        lo estamos eliminando cada vez. */
+
+
+        const section = document.getElementById('favoritesDogs');
+
+        section.innerHTML = ""
+        const h2 = document.createElement('h2');
+        const h2Text = document.createTextNode('Favourites Doggos');
+        h2.appendChild(h2Text);
+        section.appendChild(h2);
+
         /* Load dog images in favourites section */
         data.forEach(doggo => {
-            const section = document.getElementById('favoritesDogs');
             const article = document.createElement('article');
             const img = document.createElement('img');
             const btn = document.createElement('button');
@@ -70,7 +83,10 @@ async function loadFavouriteDogs() {
             btn.appendChild(btnText);
             img.src = doggo.image.url;
             img.width = 300;
-            btn.onclick = () => deleteFavouriteDoggo(doggo.id);
+            btn.onclick = () => deleteFavouriteDoggo(doggo.id); 
+            /* Le mandamos la función que se debe ejecutar y el id de nuestro doggo, se usa arros
+            function para que solo se ejecute cuando se hace click, de lo contrario se haría cada vez 
+            que se acutaliza y se manda llamar por cada doggo. (por el forEach.) */
             article.appendChild(img);
             article.appendChild(btn);
             section.appendChild(article)
@@ -101,12 +117,13 @@ async function saveFavouriteDog(id) {
         spanError.innerHTML = `Hubo un error ${res.status}  ${data.message}`;
     } else {
         console.log('Dogo agregado de favoritos')
+        loadFavouriteDogs();
     }
 }
 
 
 async function deleteFavouriteDoggo(id) {
-    const res = await fetch(API+FAVOURITES+id, {
+    const res = await fetch(API+FAVOURITES+'/'+id, {
         method: 'DELETE',
         headers: {
             'x-api-key': API_KEY,
@@ -121,6 +138,7 @@ async function deleteFavouriteDoggo(id) {
         spanError.innerHTML = `Hubo un error ${res.status}  ${data.message}`;
     } else {
         console.log('Dogo eliminado de favoritos')
+        loadFavouriteDogs(); //Se recarga cada vez que se elimina uno, así como cuando se agrega uno.
     }
 }
 
