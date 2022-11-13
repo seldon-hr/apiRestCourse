@@ -1,8 +1,13 @@
 //URL de la API
 const api = axios.create({
-    baseURL: 'https://api.thedogapi.com/v1/'
+    baseURL: 'https://api.thedogapi.com/v1/',
+    headers: {
+        'x-api-key': 'live_8o81iddRPKsNMkNDSMMYR7j5m2dUochsy69F2Qb33Q9MNBuVMPxfv8zB7mW5b14c'
+    },
 });
-api.defaults.headers.common['x-api-key'] = 'live_8o81iddRPKsNMkNDSMMYR7j5m2dUochsy69F2Qb33Q9MNBuVMPxfv8zB7mW5b14c';
+
+//The ⬇ the older version, currently add the headers in the same instance ⬆
+// api.defaults.headers.common['x-api-key'] = 'live_8o81iddRPKsNMkNDSMMYR7j5m2dUochsy69F2Qb33Q9MNBuVMPxfv8zB7mW5b14c';
 
 const API = 'https://api.thedogapi.com/v1/';
 const RANDOM = 'images/search';
