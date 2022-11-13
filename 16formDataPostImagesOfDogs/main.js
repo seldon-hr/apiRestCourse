@@ -159,16 +159,19 @@ async function upLoadDoggoPhoto() {
         body: formData,
     })
 
+    const data = await res.json(); //Nos faltaba hablar en JSON
+
     if (res.status !== 201) {
         spanError.innerHTML = `Hubo un error al subir michi: ${res.status} ${data.message}`
     }
     else {
         console.log("Foto de michi cargada :)");
-        console.log({ res });
-        console.log(res.url);
+        console.log(data);
+        console.log(data.url);
+        console.log(data.id);
+        saveFavouriteDog(data.id);
     }
 
-    saveFavouriteDog(res.id);
 }
 
 
