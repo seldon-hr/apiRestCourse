@@ -46,7 +46,7 @@ async function loadFavouriteDogs() {
     const res = await fetch(API+FAVOURITES, {
         method: 'GET',
         headers: {
-            'x-api-key': API_KEY,
+            'x-api-key': API_KEY, //Updating use the headers, use autorization with x-api-key
         },
     });
     // console.log(res.status);
