@@ -104,12 +104,12 @@ async function saveFavouriteDog(id) {
             'x-api-key': API_KEY,
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({ //The same language in frontend & backend
             image_id: id
         }),
     });
 
-    const data = await res.json();
+    const data = await res.json(); //Parseando en JSON
     console.log('save');
     console.log(data);
 
