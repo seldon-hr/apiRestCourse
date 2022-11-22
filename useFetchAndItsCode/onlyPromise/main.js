@@ -1,23 +1,34 @@
 const API = 'https://api.thecatapi.com/v1/images/search';
 
 
+const myheaders = {
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+}
 
-const newFetch = new Request(API);
+
+// const newFetch = new Request(API);
+const request = new Request(
+    API,
+    myheaders,
+);
 
 // newFetch.json();
 // console.log(newFetch);
 // newFetch
-const myURL = newFetch.url;
-const myMehod = newFetch.method;
+/* const myURL = newFetch.url;
+const myMehod = newFetch.method; */
 
-console.log(newFetch);
+/* console.log(newFetch);
 console.log(newFetch.headers);
-console.log(myMehod);
+console.log(myMehod); */
 
-fetch(newFetch)
+fetch(request)
     .then(res => res.json()) 
-    .then(blob => {
-        console.log(blob);
+    .then(data => {
+        console.log(data[0].url);
     })
 
     /* 
