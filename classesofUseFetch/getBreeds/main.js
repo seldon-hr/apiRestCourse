@@ -25,24 +25,24 @@ async function loadBreeds() {
         console.log(data);
 
         const section = document.getElementById('breedsDoggos');
-        const article = document.createElement('article');
-        const breedName = document.createElement('h5');
-        const breedNameText = document.createTextNode(data[0].name);
-        // console.log(breedNameText)
-        const img = document.createElement('img');
+        data.forEach(breed => {
+            const article = document.createElement('article');
+            const breedName = document.createElement('h5');
+            const breedNameText = document.createTextNode(breed.name);
+            // console.log(breedNameText)
+            const img = document.createElement('img');
 
 
         
-        img.src = data[0].image.url;
-        img.width = 300;
-        breedName.appendChild(breedNameText);
+            img.src = breed.image.url;
+            img.width = 300;
+            breedName.appendChild(breedNameText);
 
-        article.appendChild(breedName);
-        article.appendChild(img);
-        section.appendChild(article);
+            article.appendChild(breedName);
+            article.appendChild(img);
+            section.appendChild(article);
 
-
-
+        });
 
     }
     
