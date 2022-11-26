@@ -17,6 +17,12 @@ const HEADERS = {
     }),
 }
 
+/* 
+    Como se esta haciendo el objeto que tengo que mandar para hacer
+    la búsqueda.
+    Mando un objeto, pero que más.
+*/
+
 
 console.log(`${API}${BREEDS}${LIMIT}?q=${QUERY}`)
 
