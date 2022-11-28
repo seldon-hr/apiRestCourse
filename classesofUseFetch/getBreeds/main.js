@@ -1,6 +1,6 @@
 // URL
 const API = 'https://api.thedogapi.com/v1/';
-const BREEDS = 'breeds/search';
+const BREEDS = 'breeds/search/';
 const LIMIT = '?limit=3'
 
 
@@ -17,17 +17,23 @@ const HEADERS = {
     }),
 }
 
+const SEARCH = `${API}${BREEDS}?q=${QUERY}
+${API}${BREEDS}?q=${QUERY}`;
+
 /* 
     Como se esta haciendo el objeto que tengo que mandar para hacer
     la búsqueda.
     Mando un objeto, pero que más.
+
+    *Tengo la url y me esta arrojando ya algo
+    *Procesa esa data
 */
 
 
-console.log(`${API}${BREEDS}${LIMIT}?q=${QUERY}`)
+console.log(SEARCH)
 
 async function searchBreed() {
-    const res = await fetch(`${API}${BREEDS}${LIMIT}?q=${QUERY}`, HEADERS);
+    const res = await fetch(SEARCH, HEADERS);
     const data = await res.json();
 
     if(res.status !== 200){
