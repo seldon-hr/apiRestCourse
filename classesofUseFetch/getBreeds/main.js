@@ -7,18 +7,17 @@ const LIMIT = '?limit=3'
 const QUERY = 'Afghan';
 const API_KEY = 'live_8o81iddRPKsNMkNDSMMYR7j5m2dUochsy69F2Qb33Q9MNBuVMPxfv8zB7mW5b14c';
 const HEADERS = {
-    method: 'POST',
+    method: 'GET',
     headers: {
         'x-api-key': API_KEY,
         'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-        query: 'Afghan',
-    }),
+    // body: JSON.stringify({
+    //     query: 'Afghan',
+    // }),
 }
 
-const SEARCH = `${API}${BREEDS}?q=${QUERY}
-${API}${BREEDS}?q=${QUERY}`;
+const SEARCH = `${API}${BREEDS}?q=${QUERY}`;
 
 /* 
     Como se esta haciendo el objeto que tengo que mandar para hacer
@@ -30,9 +29,9 @@ ${API}${BREEDS}?q=${QUERY}`;
 */
 
 
-console.log(SEARCH)
 
 async function searchBreed() {
+    console.log(SEARCH);
     const res = await fetch(SEARCH, HEADERS);
     const data = await res.json();
 
