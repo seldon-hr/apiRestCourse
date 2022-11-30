@@ -26,6 +26,7 @@ const SEARCH = `${API}${BREEDS}?q=${QUERY}`;
 
     *Tengo la url y me esta arrojando ya algo
     *Procesa esa data
+    Ordenar por raza, así como list y un chekpoint
 */
 
 
