@@ -1,6 +1,6 @@
 // URL
 const API = 'https://api.thedogapi.com/v1/';
-const BREEDS = 'breeds/search/';
+const BREEDS = 'breeds';
 const LIMIT = '?limit=3'
 
 
@@ -34,7 +34,9 @@ const SEARCH = `${API}${BREEDS}?q=${QUERY}`;
 */
 
 async function getABreed() {
-    const res = await fetch(API+BREEDS);
+    const URL = API+BREEDS;
+    console.log(URL)
+    const res = await fetch(URL);
     const data = await res.json();
 
     if(res.status !== 200){
@@ -42,6 +44,7 @@ async function getABreed() {
     }
 
     console.log(data);
+    console.log(data[105].image.url)
 }
 
 getABreed();
