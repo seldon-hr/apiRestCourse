@@ -29,9 +29,26 @@ const SEARCH = `${API}${BREEDS}?q=${QUERY}`;
     Ordenar por raza, así como list y un chekpoint
 */
 
+/* get an specific breed
+    *fetch a only one breed    
+*/
+
+async function getABreed() {
+    const res = await fetch(API+BREEDS);
+    const data = await res.json();
+
+    if(res.status !== 200){
+        console.log(`We have an errror  ${res.status}  ${data.message}  `);
+    }
+
+    console.log(data);
+}
+
+getABreed();
 
 
-async function searchBreed() {
+
+/* async function searchBreed() {
     console.log(SEARCH);
     const res = await fetch(SEARCH, HEADERS);
     const data = await res.json();
@@ -69,4 +86,4 @@ async function searchBreed() {
 }
 
 searchBreed();
-
+ */
