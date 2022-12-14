@@ -4,6 +4,42 @@
     box-sizing: border-box;
 }
 
-.header__banner {
+header {
     width: 100%;
+    height: 350px;
+    display: grid;
+    background-image: url(../assets/coverBanner.jpg);
+    background-size: cover;
+    background-attachment: center;
+    background-repeat: no-repeat;
+}
+
+/* .header__banner {
+    
+} */
+
+.header__content {
+    width: 100%;
+    height: inherit;
+    display: grid;
+}
+
+.header__content h1,p {
+    place-self: center;
+}
+
+.header__content p {
+    align-self: flex-start;
+}
+
+
+
+.header__logo {
+    justify-self: end;
+    position:absolute;
+    margin: 20px 30px 0 0;
+    /* left: 0;
+    top: 50%; */
+    width: 40px;
+    height: 40px;
 }
