@@ -1,0 +1,21 @@
+@import url(./normalize.css);
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --textTitles: #9B9B9F;
+    --textBase: #B28E7A;
+    --primaryBrownColour: #A4887A;
+    --primaryGrayColour: ADABA7;
+    --secondaryGrayColour: #BFBCAF;
+    --secondaryBrownColour: #96837B;
+}
+
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&display=swap');

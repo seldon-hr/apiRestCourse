@@ -1,14 +1,13 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url(./general.css);
 
 header {
     width: 100%;
     height: 350px;
     display: grid;
     background-image: url(../assets/coverBanner.jpg);
+    /* filter: blur(1px) brightness(68%);
+    -webkit-filter: blur(1px) brightness(68%);
+    -moz-filter: blur(1px) brightness(68%); */
     background-size: cover;
     background-attachment: center;
     background-repeat: no-repeat;
@@ -26,10 +25,19 @@ header {
 
 .header__content h1,p {
     place-self: center;
+    color: var(--textTitles);
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.header__content h1 {
+    display: block;
+    font-size: 40px;
+    padding-left: 25px;
 }
 
 .header__content p {
     align-self: flex-start;
+   
 }
 
 
