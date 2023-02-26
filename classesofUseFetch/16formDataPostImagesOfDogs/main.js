@@ -1,3 +1,17 @@
+/* 
+    Versión dónde se encunetra funcionando las principales funciones acerca de lo que consiste The doggo app
+    1. Get aleatoy doggos
+    2. Up your ownn photo from a doggo
+    3. Add the a doggo to fav section
+    4. Remove a doggo from fav section
+
+
+    Lo restante es ahora volver a comprender el código que tenemos escrito en esta sección para poder
+    revalorizar las secciones que se emplean y ven en cada una.
+
+*/
+
+
 //URL de la API
 const API = 'https://api.thedogapi.com/v1/';
 const RANDOM = 'images/search';
