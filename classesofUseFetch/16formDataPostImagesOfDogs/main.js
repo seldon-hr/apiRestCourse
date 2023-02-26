@@ -8,7 +8,7 @@
 
     Lo restante es ahora volver a comprender el código que tenemos escrito en esta sección para poder
     revalorizar las secciones que se emplean y ven en cada una.
-
+    *Check the notion page for the project
 */
 
 
