@@ -27,12 +27,12 @@ const API_KEY = 'live_8o81iddRPKsNMkNDSMMYR7j5m2dUochsy69F2Qb33Q9MNBuVMPxfv8zB7m
 const FAVOURITES = 'favourites';
 
 
-
+//Span que lanzamos cuando la api falla, o algún otro error
 const spanError = document.getElementById('error');
 
 
 
-
+//Function to get aleatory doggos, in this case three doggos.
 async function loadRandomDogs() {
     const res = await fetch(API+RANDOM+LIMIT_RANDOM);
     const data = await res.json();
@@ -57,6 +57,8 @@ async function loadRandomDogs() {
     
 }
 
+
+//Function to load the favourite doggos
 async function loadFavouriteDogs() {
     const res = await fetch(API+FAVOURITES, {
         method: 'GET',
@@ -73,6 +75,8 @@ async function loadFavouriteDogs() {
     if (res.status !== 200) {
         spanError.innerHTML = `Hubo un error ${res.status} ${data.message}`;
     } else {
+        
+
         /* Limpiamos porque cada vez que agregamos se va a volver a llamar, de manera que se carga todo de nuevo
         y tendríamos repetido por cada vez que guardamos un doggo en favoritos, así limpiamos section que contiene todo
         e insertamos un h2 con su texto h2Text que lo agregaremos cada que agreguemos un nuevo a favoritos, ya que
@@ -111,7 +115,7 @@ async function loadFavouriteDogs() {
 }
 
 
-
+//Save a doggo in favourite section
 async function saveFavouriteDog(id) {
     const res = await fetch(API+FAVOURITES, {
         method: 'POST',
@@ -119,7 +123,7 @@ async function saveFavouriteDog(id) {
             'x-api-key': API_KEY,
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ //The same language in frontend & backend
+        body: JSON.stringify({ //This it is to indicate we may speak the same language in frontend & backend
             image_id: id
         }),
     });
@@ -136,7 +140,7 @@ async function saveFavouriteDog(id) {
     }
 }
 
-
+//Delate from favourites
 async function deleteFavouriteDoggo(id) {
     const res = await fetch(API+FAVOURITES+'/'+id, {
         method: 'DELETE',
@@ -157,7 +161,7 @@ async function deleteFavouriteDoggo(id) {
     }
 }
 
-
+//Upload photos fromo a doggo
 async function upLoadDoggoPhoto() {
     const form = document.getElementById('upLoadingForm')
     const formData = new FormData(form);
